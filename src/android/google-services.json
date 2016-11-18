@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "773915665099",
+    "firebase_url": "https://lovespace-c2160.firebaseio.com",
+    "project_id": "lovespace-c2160",
+    "storage_bucket": "lovespace-c2160.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:773915665099:android:a9fc81c86ac662e6",
+        "android_client_info": {
+          "package_name": "com.lovespace.co.uk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "773915665099-dt978n0h0g8i124s9h10u5dvsccm5pd7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "773915665099-j8ebet4ofjsa2blfuaqnr4ijnrhl2c5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0z448D_X14AQNhc2sDNBsEjwxQk0XBAI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
