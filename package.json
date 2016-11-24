@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git+https://github.com/arnesson/cordova-plugin-firebase.git"
   },
-  "name": "cordova-plugin-firebase-lovespace",
+  "name": "@lovespace/cordova-plugin-firebase-lovespace",
   "version": "0.1.18",
   "description": "Cordova plugin for Google Firebase",
   "cordova": {
