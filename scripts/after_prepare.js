@@ -37,7 +37,6 @@ if (directoryExists("platforms/ios")) {
   var paths = ["GoogleService-Info.plist", "platforms/ios/www/GoogleService-Info.plist"];
 
   for (var i = 0; i < paths.length; i++) {
-	console.log('fileExists(paths[i]', fileExists(paths[i]));
     if (fileExists(paths[i])) {
       try {
         var contents = fs.readFileSync(paths[i]).toString();
@@ -55,7 +54,6 @@ if (directoryExists("platforms/android")) {
   var paths = ["google-services.json", "platforms/android/assets/www/google-services.json"];
 
   for (var i = 0; i < paths.length; i++) {
-	console.log('fileExists(paths[i]', fileExists(paths[i]));
     if (fileExists(paths[i])) {
       try {
         var contents = fs.readFileSync(paths[i]).toString();

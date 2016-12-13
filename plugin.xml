@@ -5,7 +5,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>Google Firebase Plugin</name>
 
 	<description>Lovespace Fork</description>
-	
+
 	<license>MIT</license>
 
 	<engines>
@@ -23,10 +23,10 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 			</feature>
 		</config-file>
 		<config-file parent="/resources" target="res/values/strings.xml">
-			<string name="google_app_id">@string/google_app_id</string>
+			<string name="google_app_id">1:773915665099:android:a9fc81c86ac662e6</string>
 		</config-file>
 		<config-file parent="/resources" target="res/values/strings.xml">
-			<string name="google_api_key">@string/google_api_key</string>
+			<string name="google_api_key">AIzaSyA0z448D_X14AQNhc2sDNBsEjwxQk0XBAI</string>
 		</config-file>
 		<config-file target="AndroidManifest.xml" parent="/*">
 				<uses-permission android:name="android.permission.INTERNET" />
@@ -102,6 +102,4 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 			<clobbers target="FirebasePlugin" />
 		</js-module>
 	</platform>
-
-	<hook src="scripts/after_prepare.js" type="after_prepare" />
 </plugin>
