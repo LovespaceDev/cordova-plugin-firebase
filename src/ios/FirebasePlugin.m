@@ -144,6 +144,21 @@ static FirebasePlugin *firebasePlugin;
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
+- (void)unregister:(CDVInvokedUrlCommand *)command {
+    [[FIRInstanceID instanceID] deleteIDWithHandler:^void(NSError *_Nullable error){
+        if (error) {
+            NSLog(@"Unable to delete instance");
+        } else {            
+            NSString* currentToken = [[FIRInstanceID instanceID] token];
+            if (currentToken != nil) {
+                [self sendToken:currentToken];
+            }
+            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+        }
+    }];
+}
+
 - (void)onNotificationOpen:(CDVInvokedUrlCommand *)command {
     self.notificationCallbackId = command.callbackId;
 
@@ -202,6 +217,15 @@ static FirebasePlugin *firebasePlugin;
     }];
 }
 
+- (void)setScreenName:(CDVInvokedUrlCommand *)command {
+    NSString* name = [command.arguments objectAtIndex:0];
+
+    [FIRAnalytics setScreenName:name screenClass:NULL];
+
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 - (void)setUserId:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         NSString* id = [command.arguments objectAtIndex:0];
@@ -228,13 +252,24 @@ static FirebasePlugin *firebasePlugin;
 - (void)fetch:(CDVInvokedUrlCommand *)command {
     [self.commandDelegate runInBackground:^{
         FIRRemoteConfig* remoteConfig = [FIRRemoteConfig remoteConfig];
-        [remoteConfig fetchWithCompletionHandler:^(FIRRemoteConfigFetchStatus status, NSError * _Nullable error) {
-            if (status == FIRRemoteConfigFetchStatusSuccess) {
-                CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-                [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-            }
-        }];
 
+        if ([command.arguments count] > 0){
+            int expirationDuration = [[command.arguments objectAtIndex:0] intValue];
+
+            [remoteConfig fetchWithExpirationDuration:expirationDuration completionHandler:^(FIRRemoteConfigFetchStatus status, NSError * _Nullable error) {
+                if (status == FIRRemoteConfigFetchStatusSuccess) {
+                    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+                    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+                }
+            }];
+        } else {
+            [remoteConfig fetchWithCompletionHandler:^(FIRRemoteConfigFetchStatus status, NSError * _Nullable error) {
+                if (status == FIRRemoteConfigFetchStatusSuccess) {
+                    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+                    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+                }
+            }];
+        }
     }];
 }
 
