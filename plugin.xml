@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 
-<plugin id="cordova-plugin-firebase" version="2.0.5"
+<plugin id="cordova-plugin-firebase" version="2.0.7"
 xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android">
 	<name>Google Firebase Plugin</name>
@@ -25,12 +25,6 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 				<param name="android-package" value="org.apache.cordova.firebase.FirebasePlugin" />
 				<param name="onload" value="true" />
 			</feature>
-		</config-file>
-		<config-file parent="/resources" target="res/values/strings.xml">
-			<string name="google_app_id">1:773915665099:android:a9fc81c86ac662e6</string>
-		</config-file>
-		<config-file parent="/resources" target="res/values/strings.xml">
-			<string name="google_api_key">AIzaSyA0z448D_X14AQNhc2sDNBsEjwxQk0XBAI</string>
 		</config-file>
 		<config-file target="AndroidManifest.xml" parent="/*">
 				<uses-permission android:name="android.permission.INTERNET" />
@@ -91,7 +85,7 @@ xmlns:android="http://schemas.android.com/apk/res/android">
 			<string>production</string>
 		</config-file>
 
-		<resource-file src="src/ios/GoogleService-Info.plist" />
+		<!--<resource-file src="src/ios/GoogleService-Info.plist" />-->
 
 		<header-file src="src/ios/AppDelegate+FirebasePlugin.h" />
 		<source-file src="src/ios/AppDelegate+FirebasePlugin.m" />

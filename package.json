@@ -6,7 +6,7 @@
     "url": "git+https://github.com/arnesson/cordova-plugin-firebase.git"
   },
   "name": "@lovespace/cordova-plugin-firebase-lovespace",
-  "version": "2.0.5",
+  "version": "2.0.7",
   "description": "Cordova plugin for Google Firebase",
   "cordova": {
     "id": "cordova-plugin-firebase",
